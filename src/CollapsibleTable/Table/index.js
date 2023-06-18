@@ -186,8 +186,7 @@ const CollapsibleTable = ({
   console.log(sortedData)
   return (
     <>
-      <TableContainer component={Paper}>
-        {enableQuickFilter ? (
+    {enableQuickFilter ? (
           <Box sx={{ m: 2 }} display="flex" justifyContent="right">
             <TextField
               InputProps={{
@@ -204,6 +203,7 @@ const CollapsibleTable = ({
             />
           </Box>
         ) : null}
+      <TableContainer component={Paper}>
         <Table>
           <TableHead>
             <TableRow>
