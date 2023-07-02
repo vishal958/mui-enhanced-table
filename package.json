@@ -3,14 +3,16 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "@emotion/react": "^11.5.0",
-    "@emotion/styled": "^11.3.0",
-    "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.13.3",
-    "@types/react": "^17.0.0 || ^18.0.0",
+    "@emotion/react": "11.11.0",
+    "@emotion/styled": "11.11.0",
+    "@mui/icons-material": "5.11.16",
+    "@mui/material": "5.13.3",
+    "@mui/styles": "^5.13.2",
+    "@types/react": "18.2.8",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "ui": "^0.2.4"
+    "react-resizable": "3.0.5",
+    "ui": "0.2.4"
   },
   "scripts": {
     "start": "react-scripts start",
