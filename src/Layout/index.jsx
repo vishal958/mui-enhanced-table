@@ -24,8 +24,8 @@ const App = () => {
   };
 
   return (
-    <Grid container>
-      <Grid item xs={12}>
+    <Grid container direction="column" style={{ minHeight: '100vh' }}>
+      <Grid item>
         <AppBar position="sticky">
           <Toolbar>
             {isMobile && (
@@ -44,16 +44,60 @@ const App = () => {
           </Toolbar>
         </AppBar>
       </Grid>
-      <Grid item xs={12}>
+      <Grid item sx={{ flexGrow: 1 }}>
+        <Grid container justifyContent="center" alignItems="center">
+          <Grid item xs={10}>
+            <Typography variant="h4">Welcome to My Website!</Typography>
+            <Typography variant="body1">
+              This is some sample main content. Replace it with your own
+              content.
+            </Typography>
+          </Grid>
+        </Grid>
+      </Grid>
+      <Grid item>
+        <AppBar
+          position="static"
+          color="primary"
+          style={{ top: 'auto', bottom: 0 }}
+        >
+          <Toolbar>
+            <Typography variant="body2" color="inherit" sx={{ flexGrow: 1 }}>
+              &copy; 2023 My Website. All rights reserved.
+            </Typography>
+            <Typography variant="body2" color="inherit">
+              Contact: info@mywebsite.com
+            </Typography>
+          </Toolbar>
+        </AppBar>
+      </Grid>
+      {!isMobile && (
+        <Grid item>
+          <Drawer anchor="left" open={true} variant="persistent">
+            <List component="nav">
+              <ListItem button>
+                <ListItemText primary="Home" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="About" />
+              </ListItem>
+              <ListItem button>
+                <ListItemText primary="Services" />
+              </ListItem>
+            </List>
+          </Drawer>
+        </Grid>
+      )}
+      {isMobile && (
         <Drawer
           anchor="left"
-          open={isMobile && isDrawerOpen}
+          open={isDrawerOpen}
           onClose={toggleDrawer}
-          variant={isMobile ? 'temporary' : 'persistent'}
+          variant="temporary"
         >
           <List component="nav">
             <ListItem button>
-              <ListItemText primary="Homae" />
+              <ListItemText primary="Home" />
             </ListItem>
             <ListItem button>
               <ListItemText primary="About" />
@@ -63,20 +107,7 @@ const App = () => {
             </ListItem>
           </List>
         </Drawer>
-      </Grid>
-      <Grid item xs={10} sx={{ marginLeft: 'auto', paddingTop: '64px' }}>
-        <Grid container>
-          <Grid item xs={12}>
-            <Typography variant="h4">Welcome to My Website!</Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography variant="body1">
-              This is some sample main content. Replace it with your own
-              content.
-            </Typography>
-          </Grid>
-        </Grid>
-      </Grid>
+      )}
     </Grid>
   );
 };
